@@ -1,0 +1,16 @@
+<%- include('../partials/header') %>
+
+    <h1>Posts Index</h1>
+
+    <ul class="posts">
+      <!-- posts variable comes from the object
+      passed to the render function for this template in
+      the posts.js router                 👇
+      (i.e. res.render('posts/index', {posts: posts}); )
+    -->
+      <% for (let post of posts) { %>
+        <li><%= post.title %></li>
+      <% } %>
+    </ul>
+
+<%- include('../partials/footer') %>

@@ -49,6 +49,7 @@ const cookieParser = require('cookie-parser');
 // this assigns the right-hand value of module.exports in the file routes/home.js
 // to the variable home
 const home = require('./routes/home');
+const posts = require('./routes/posts');
 
 // Express is a function that returns the object that represents our app or
 // web server
@@ -161,6 +162,11 @@ app.get('/', function (req, res, next) {
 */
 
 app.use('/', home);
+// all routes inside of posts
+// will begin with /posts
+// meaning a route such as router.get('/new', function ...) would
+// be accessible at the address /posts/new
+app.use('/posts', posts)
 
 app.listen(PORT, function () {
   console.log(`Server listening on http://localhost:${PORT}...`)
