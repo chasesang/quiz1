@@ -9,7 +9,7 @@
       (i.e. res.render('posts/index', {posts: posts}); )
     -->
       <% for (let post of posts) { %>
-        <li><%= post.title %></li>
+        <a href="/posts/show/<%= post.id %>"><li><%= post.title %></li></a>
       <% } %>
     </ul>
 

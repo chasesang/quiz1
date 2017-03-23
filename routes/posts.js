@@ -2,6 +2,18 @@ const Express = require('express');
 const router = Express.Router();
 const db = require('../db/conn');
 
+router.get('/show/:id', function (req, res, next) {
+  let id = req.params.id
+  db.one(`SELECT * FROM posts WHERE id=${id}`)
+    .then(function (post) {
+      console.log(post);
+      res.render('posts/show', { post: post });
+    })
+    .catch(function (err) {
+        res.send(err);
+    });
+})
+
 router.get('/', function (req, res, next) {
   // ORDER BY id DESC will reverse the order of the posts
   db.query(`SELECT * FROM posts ORDER BY id DESC`)
