@@ -23,9 +23,14 @@
 //        `apm install language-ejs` in your terminal
 // Step 9: Install body-parser middleware (form parsing) with `yarn add body-parser`
 //         , require it, then use it like below
+// Step 10: Serving static assets (e.g. images, css, scripts, etc): Use the middleware
+//          Express.static (packaged with Express) to serve them. Do not forget to
+//          require the path module of node. Then add the following line to your
+//          app.js, `app.use(Express.static(path.join(__dirname, 'public')));
 
 const PORT = 5001;
 const colors = require('colors');
+const path =  require('path');
 const Express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
@@ -73,6 +78,11 @@ app.use(function (request, response, next) {
 // it returns a function (meaning that it's an higher-order function). that function
 // is a middleware function
 app.use(logger('dev'));
+
+// __dirname is a special global variable made availabe by node. it refers
+// to the current directory of the file where its used
+// /Users/sg/CodeCore/LiveDemo/node-express.../public
+app.use(Express.static(path.join(__dirname, 'public')));
 
 // middleware required to transform form data into an easy to use javascript object
 app.use(bodyParser.urlencoded({extended: false}));
