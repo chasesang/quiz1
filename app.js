@@ -27,6 +27,16 @@
 //          Express.static (packaged with Express) to serve them. Do not forget to
 //          require the path module of node. Then add the following line to your
 //          app.js, `app.use(Express.static(path.join(__dirname, 'public')));
+// Step 11: Reading and Sending Cookies: Install cookie-parser middleware with
+//          `yarn add cookie-parser`, require it `const cookieParser = require('cookie-parser')`
+//          then use it `app.use(cookieParser());`
+// Step 12: Create Postgres Database: Make sure your postgres database is installed and
+//          working (run `psql` in terminal to see if it's running)
+//          - For a postgres database installed with brew:
+//            - brew services start postgresql (starts the database; you only need
+//              to run this once unless it needs to be restarted)
+//          - Create a database with `createdb <name-of-db>` (ie. `createdb ned`)
+//          - Drop a database with `dropdb <name-of-db>` (i.e. `dropdb ned`)
 
 const PORT = 5001;
 const colors = require('colors');
