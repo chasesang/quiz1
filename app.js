@@ -34,6 +34,7 @@ const path =  require('path');
 const Express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 
 // this assigns the right-hand value of module.exports in the file routes/home.js
 // to the variable home
@@ -83,6 +84,33 @@ app.use(logger('dev'));
 // to the current directory of the file where its used
 // /Users/sg/CodeCore/LiveDemo/node-express.../public
 app.use(Express.static(path.join(__dirname, 'public')));
+
+app.use(cookieParser());
+
+app.use(function (req, res, next) {
+  // cookieParser added the property cookies to the request object
+  // req.cookies contains an object where each property maps to a relevant
+  // cookie of the same name
+  // req.cookies
+
+  // if there isn't a cookie named luckyNumber, set it with a random number
+  if (!req.cookies.luckyNumber) {
+    // the method .cookie on the response is used to set cookies it takes two
+    // required arguments:
+    // - the first argument is the name of the cookie as a string
+    // - the second argument is value to be stored in the cookie
+    res.cookie('luckyNumber', Math.floor(Math.random() * 100), { maxAge: 86400000});
+  }
+
+  // You can store arrays and objects in cookies. They will be turned into strings
+  // for the browser. When retrieved with req.cookies, the cookieParser will have
+  // turned them back into their original type.
+  res.cookie('things',['Mouse', 'Pen', 'Bow', 'Dagger']);
+
+  console.log('🤔', req.cookies.things);
+
+  next();
+})
 
 // middleware required to transform form data into an easy to use javascript object
 app.use(bodyParser.urlencoded({extended: false}));
