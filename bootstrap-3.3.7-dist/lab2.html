@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mobile First Space App</title>
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <style>
+      body {
+        background-color: black;
+      }
+      .navbar {
+        position: fixed;
+        width: 100%;
+        border-bottom: thin white solid;
+        background-color: black;
+        padding: 10px;
+      }
+      .navbar-header {
+        position: absolute;
+        right: 120px;
+      }
+      .moonlogo {
+        float: left;
+      }
+      .navbar-brand {
+        font-family: "Open Sans";
+        font-size: 23px;
+        color: white;
+        padding: 13px;
+      }
+      .btn-primary {
+        background-color: black;
+        border: none;
+        float: right;
+      }
+      .container {
+        min-width: 80wv;
+        align-items: center;
+        padding: 40px;
+      }
+      .content {
+        min-height: 100px;
+        width: 80wv;
+      }
+      .shaderbox {
+        background-color: white;
+        opacity: 0.5;
+        height: 50px;
+        position: relative;
+        bottom: 50px;
+      }
+      .text {
+        color: black;
+        position: relative;
+        bottom: 90px;
+        left: 15px;
+        font-family: "Open Sans";
+        font-size: 18px;
+      }
+      .spaceship {
+          position: fixed; /* forces the element to stay fixed in relation to the viewport */
+          top: 95%; /* sets the top of the image 50% of the page height */
+          left: 95%; /* sets the left side of the image 50% across the page */
+          margin-left: -100px; /* moves the image half of its own width to the left-side of the page */
+          margin-top: -93px; /* moves the image half its height 'up' the page */
+          box-shadow: 0em 0em 1em black; /* to give the illusion of 'floating'*/
+          border-radius:100px;
+        }
+    </style>
+  </head>
+  <body>
+    <!-- navigation bar -->
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="moonlogo">
+          <img src="images/moon.png" width="50px"/>
+        </div>
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">SPACE</a>
+        </div>
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><img src="hamburgermenu.png" width=50wv/>
+          <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#">HTML</a></li>
+            <li><a href="#">CSS</a></li>
+            <li><a href="#">JavaScript</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- content -->
+    <div class="container">
+      <div class="content">
+        <img src="images/space00.jpg" width="100%"/>
+        <div class="shaderbox"></div>
+        <div class="text">Crazy lazer curving in atmosphere</div>
+      </div>
+      <div class="content">
+        <img src="images/space01.jpg" width="100%"/>
+        <div class="shaderbox"></div>
+        <div class="text">Sun moss conquering Earth</div>
+      </div>
+      <div class="content">
+        <img src="images/space02.jpg" width="100%"/>
+        <div class="shaderbox"></div>
+        <div class="text">Emma's spaceship collection</div>
+      </div>
+    </div>
+    <!-- spaceship icon -->
+    <div class="spaceship">
+      <img src="images/rocket.png" width="100px"/>
+    </div>
+  </body>
+</html>
