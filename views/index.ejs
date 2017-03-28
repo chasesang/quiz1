@@ -1,21 +1,37 @@
-<%# using tags like will take the contents of whatever is returned inside
-the tags and output as raw text %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Home Page</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<%- include('partials/header') %>
-<%# 👆 will get the html from the template in the partials folder named header.ejs
-and replace the line 3 with its contents %>
+    <link rel="stylesheet" href="/css/index.css"
+    type="text/css" media="screen" charset="utf-8">
+    <style>
+    body{
+      background-image: url(images/backgroundpic.jpg);
+    }
+    </style>
 
-    <h1>Welcome to the Node and Express Demo</h1>
+</head>
 
-    <!-- in an img tag, the src as attribute is used to get the
-    image that will be loaded. the path given to src should begin after your
-    project's domain (e.g. http://localhost:5001 ). Write the path to the
-    image as it appears inside the static folder (public in this app). Or,
-    it is the url address to the file
-    -->
-    <img src='/images/pug-bunny.jpg'/>
+<body>
+  <header style="z-index:">
+    <nav>
+      <a class="nav-logo"><img src="images/awesomeface.jpg" style="
+        width: 5%;
+        height: auto;
+        "></img></a>
+      <a href="/" class="navbar-brand navbar-right">Home</a>
+      <a href="/posts" class="navbar-brand navbar-right">Dashboard</a>
+      <a class="nav-menu"><i class="fa fa-bars"></i></a>
+    </nav>
+  </header>
+
+  <div class="homepage"
+    <h1>Awesome Tweets</h1>
+</div>
+
+
 
 <%- include('partials/footer') %>
-
-<%# seperating the top and bottom html that is common to all our pages into
-partials allows to reuse our html code %>

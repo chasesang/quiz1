@@ -1,16 +1,52 @@
 <%- include('../partials/header') %>
+    <div class="col-md-4">
+      <div class="row">
+        <div class="col-sm-3">
+          <img src='images/Ted-2-Ted.jpg' style="
+          height: 50px;
+          width: 50px"/>
+          </br>
+          <p></p>
+          <p>Messages</p>
+          <p><%= posts.length %></p>
+        </div>
+        <div class="col-sm-9" style="
+        font-weight: bold">
+          <h2>Chase</h2></br>
+          <h3>@chase.sang</h3>
+        </div>
+      </div>
 
-    <h1>Posts Index</h1>
+      <div class="row" style="
+       border: none;">
+        <h2>Treading AweTweets</h2>
+      </div>
 
-    <ul class="posts">
-      <!-- posts variable comes from the object
-      passed to the render function for this template in
-      the posts.js router                 👇
-      (i.e. res.render('posts/index', {posts: posts}); )
-    -->
-      <% for (let post of posts) { %>
-        <a href="/posts/show/<%= post.id %>"><li><%= post.title %></li></a>
-      <% } %>
-    </ul>
+      <div class="row">
+      <p>#Things</p>
+      <p>#WinterIsHer</p>
+      <p>#Loveislove</p>
+      </div>
 
+    </div>
+
+    <div class="col-md-8">
+      <form method="post">
+        <div class="form-group">
+          <input type="username" name="username" class="form-control form-control" id="username" placeholder="Username">
+          </div>
+        <div class="form-group">
+            <input type="message" name="message" class="form-control
+          form-control" id="message" placeholder="Tweets(Max 255 characters)"></br>
+        <input type="submit">
+        </div>
+      </form>
+      <div class="posts">
+        <% for (let post of posts) { %>
+          <div class="row">
+          <li><%= post.title %></li>
+          <p><%= post.content %></p>
+          </div>
+        <% } %>
+      </div>
 <%- include('../partials/footer') %>
